@@ -1,0 +1,33 @@
+version: '3'
+services:
+  apache:
+    build: docker/apache
+    container_name: my-php-container
+    ports:
+      - "8000:80"
+    working_dir: /application
+    volumes:
+      - ./src/mantis:/var/www/html
+
+  mysql:
+    image: mariadb:latest
+    links:
+      - apache:mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=bugtracker
+      - MYSQL_USER=mantisbt
+      - MYSQL_PASSWORD=mantisbt
+    volumes:
+      - ./mysql:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    image: nazarpc/phpmyadmin
+    links:
+      - mysql
+    ports:
+      - "5000:80"
+
+volumes:
+  app-volume:
