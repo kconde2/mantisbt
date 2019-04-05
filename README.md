@@ -25,9 +25,9 @@ make down
 
 To navigate into browser, see:
 
-```
+
 [http://localhost:8000](http://localhost:8000)
-```
+
 
 Admin credentials are :
 
