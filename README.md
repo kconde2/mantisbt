@@ -28,3 +28,13 @@ To navigate into browser, see:
 ```
 [http://localhost:8000](http://localhost:8000)
 ```
+
+Admin credentials are :
+
+```
+username : administrator
+password : root
+```
+
+
+cat mantis.sql | docker exec -i 175a3db4a19a /usr/bin/mysql -u root --password=root bugtracker
