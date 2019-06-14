@@ -36,5 +36,8 @@ username : administrator
 password : root
 ```
 
+Dump mysql database
 
+```
 cat mantis.sql | docker exec -i 175a3db4a19a /usr/bin/mysql -u root --password=root bugtracker
+```
