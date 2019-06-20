@@ -20,4 +20,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql gd mbstring bcmath zip intl opcache mysqli fileinfo \
     && docker-php-ext-enable intl opcache
 
+# Logs (mails, etc)
+RUN mkdir -p /var/log
+RUN touch /var/log/mantisbt.log
+RUN chmod 777 /var/log/mantisbt.log
+
 EXPOSE 80

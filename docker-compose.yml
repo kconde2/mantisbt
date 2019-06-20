@@ -5,7 +5,7 @@ services:
     container_name: my-php-container
     ports:
       - "8000:80"
-    working_dir: /application
+    working_dir: /var/www/html
     volumes:
       - ./src/mantis:/var/www/html
 
@@ -28,6 +28,12 @@ services:
       - mysql
     ports:
       - "5000:80"
+
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - "1080:80"
+      - "1025:25"
 
 volumes:
   app-volume:
