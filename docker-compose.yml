@@ -35,5 +35,23 @@ services:
       - "1080:80"
       - "1025:25"
 
+  portainer:
+    image: portainer/portainer
+    container_name: "portainer-app"
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  grafana:
+    image: grafana/grafana
+    container_name: "grafana-app"
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-volume:/var/lib/grafana
+
 volumes:
   app-volume:
+  grafana-volume:
